@@ -1,0 +1,90 @@
+<!--
+Esercizio di oggi: PHP ToDo List JSON
+
+Dobbiamo creare una web-app che permetta di leggere e scrivere una lista di Todo.
+Deve essere anche gestita la persistenza dei dati leggendoli da, e scrivendoli in un file JSON.
+Stack
+Html, CSS, VueJS (importato tramite CDN), axios, PHP
+
+Consigli
+Nello svolgere l’esercizio seguite un approccio graduale.
+Prima assicuratevi che la vostra pagina index.html (il vostro front-end) riesca a comunicare correttamente con il vostro script PHP (le vostre “API”).
+Lo step successivo è quello di “testare" l'invio di un nuovo task, sapendo che manca comunque la persistenza lato server (ancora non memorizzate i dati da nessuna parte).
+Solo a questo punto sarà utile passare alla lettura della lista da un file JSON.
+
+Bonus
+Mostrare lo stato del task → se completato, barrare il testo
+Permettere di segnare un task come completato facendo click sul testo
+Permettere il toggle del task (completato/non completato)
+Abilitare l’eliminazione di un task
+Buon lavoro!
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML, CSS">
+    <meta name="author" content="Monica Izzo">
+    <title>PHP TODO List JSON</title>
+
+    <!-- icon-->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/faicon.png">
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+    <!-- AXIOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.1/axios.min.js">
+        integrity="sha512-NbjaUHU8g0+Y8tMcRtIz0irSU3MjLlEdCvp82MqciVF4R2Ru/eaXHDjNSOvS6EfhRYbmQHuznp/ghbUvcC0Nv=="
+        crossorigin="anonymous"
+    </script>
+
+    <!-- VueJS -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- JS -->
+    <script defer src="js/script.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="app">
+            <section class="todo-list py-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="display-1 text-muted">Todo List</h1>
+                            <ul class="list-group list-group-flush border border-1 rounded">
+                                <li v-for="(task, i) in tasks" :key="i"
+                                class="list-group-item">{{ task }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="add-todo">
+                <div class="container">
+                    <div class="row">
+                <div class="col-12">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Inserisci elemento...">
+                        <button class="btn btn-outline-warning" type="button" id="button-add">Inserisci</button>
+                    </div>
+                </div>
+                </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>
