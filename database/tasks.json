@@ -1,1 +1,24 @@
-["HTML","CSS","Responsive design","JavaScript","PHP"]
+[
+    { 
+        "id" : 1,
+        "text" : "HTML",
+        "done" : false
+    },
+    { 
+        "id" : 1,
+        "text" : "CSS",
+        "done" : false
+    }, 
+    { 
+        "id" : 1,
+        "text" : "Responsive design",
+        "done" : false
+    }, 
+    { 
+        "id" : 1,
+        "text" : "JavaScript",
+        "done" : false
+    } 
+
+
+]
