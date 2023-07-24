@@ -65,7 +65,7 @@ Buon lavoro!
                         <div class="col-12">
                             <h1 class="display-1 text-muted">Todo List</h1>
                             <ul class="list-group list-group-flush border border-1 rounded">
-                                <li v-for="task in tasks" :key="task.id" class="list-group-item"> <span
+                                <li v-for="task in tasks" :key="task.id" class="list-group-item"><span
                                         :class="{'text-decoration-line-through' : task.done}">{{ task.text }}</span>
                                 </li>
                             </ul>

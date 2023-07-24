@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: application/json');
 
 // Recupero l'indirizzo del file che simula il database
 $database_path = __DIR__ . '/../../database/tasks.json';
@@ -10,21 +11,18 @@ $json_data = file_get_contents($database_path);
 $tasks = json_decode($json_data, true);
 
 // Controlliamo se abbiamo qualcosa in post
-$new_task = $_POST['task'] ?? null;
-if ($new_task) {
+$task_text = $_POST['task'] ?? null;
+if ($task_text) {
+    $new_task = ['text' => $task_text, 'done' => false, 'id' => count($tasks) + 1];
+
     $tasks[] = $new_task;
 
     $json_tasks = json_encode($tasks);
     file_put_contents($database_path, $json_tasks);
 
-    // Avviso chi mi riceve che la risposta è risposta è in json
-    header('Content-Type: application/json');
 
-    echo $new_task;
+    echo json_encode($new_task);
 } else {
-    // Avviso chi mi riceve che la risposta è risposta è in json
-    header('Content-Type: application/json');
-
     //Converto in Json
     echo json_encode($tasks);
 }
